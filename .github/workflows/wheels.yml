@@ -11,6 +11,7 @@ jobs:
     name: Build wheels on ${{ matrix.os }} and hdf5-${{ matrix.hdf5 }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest, macos-13]
         hdf5: ["1.10.7", "1.14.6"]
@@ -43,6 +44,7 @@ jobs:
             LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
             CPATH=/usr/local/include
             ENABLE_ZSTD=1
+            BITSHUFFLE_ARCH=haswell
           CIBW_ENVIRONMENT_MACOS: >
             DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/lib
             CPATH=/usr/local/include
