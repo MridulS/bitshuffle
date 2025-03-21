@@ -58,7 +58,7 @@ jobs:
           # CIBW_TEST_SKIP: "*macosx* *win*"
 
       # Package wheels and host on CI
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           path: ./wheelhouse-hdf5-${{ matrix.hdf5 }}/*.whl
 
